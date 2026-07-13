@@ -1,0 +1,10 @@
+# OS / editor junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# never commit local-only notes or secrets
+*INTERNAL*
+*.local
+*.local.*
+.env

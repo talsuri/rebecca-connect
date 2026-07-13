@@ -1,0 +1,161 @@
+/* SURI brand typeface — "Plain" (Optimo), bundled locally */
+@font-face {
+  font-family: "Plain";
+  src: url("fonts/Plain-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Plain";
+  src: url("fonts/Plain-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Plain";
+  src: url("fonts/Plain-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --ink: #000;
+  --muted: #8a8a8e;
+  --line: #e6e6e6;
+  --bg: #fff;
+  --error: #b3261e;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Plain", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;            /* no text inflation on rotate */
+  -webkit-tap-highlight-color: transparent;  /* no grey flash on tap */
+}
+
+body {
+  min-height: 100vh;     /* fallback for iOS < 15.4 */
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 56px 24px max(56px, env(safe-area-inset-bottom));
+}
+
+main {
+  width: 100%;
+  max-width: 380px;
+  text-align: center;
+}
+
+.block { width: 100%; }
+
+/* Wordmark — the official SURI logo */
+.wordmark {
+  margin: 0;
+  line-height: 0;
+}
+.wordmark img {
+  width: clamp(150px, 52vw, 210px);
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.who {
+  margin: 14px 0 32px;
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 400;
+}
+
+/* Generous whitespace divider */
+.rule {
+  border: none;
+  border-top: 1px solid var(--line);
+  width: 100%;
+  margin: 56px 0;
+}
+
+.headline {
+  font-size: clamp(28px, 9vw, 36px);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin: 0 0 12px;
+}
+
+/* Inputs — clean, minimal, full width */
+form { width: 100%; }
+
+input {
+  display: block;
+  width: 100%;
+  padding: 15px 16px;
+  margin-bottom: 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  font-size: 16px; /* 16px prevents iOS zoom-on-focus */
+  font-family: inherit;
+  color: var(--ink);
+  background: #fff;
+  text-align: center;
+}
+input::placeholder { color: #b5b5ba; }
+input:focus {
+  outline: none;
+  border-color: var(--ink);
+}
+
+/* Honeypot — removed from view off-screen (not display:none, which bots skip) */
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Buttons — solid black, SURI style */
+.btn {
+  display: block;
+  width: 100%;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 12px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: inherit;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity .15s ease, transform .05s ease;
+}
+.btn:hover { opacity: .85; }
+.btn:active { transform: translateY(1px); }
+.btn:disabled { opacity: .4; cursor: default; }
+
+.status {
+  margin: 14px 0 0;
+  font-size: 14px;
+  min-height: 18px;
+}
+.status.error { color: var(--error); }
+.status.ok { color: var(--ink); font-weight: 500; }
+.status.pending { color: var(--muted); }
+
+/* Success state — minimal, no clutter */
+.done .headline { margin-bottom: 0; }
