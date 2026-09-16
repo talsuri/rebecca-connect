@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>SURI · Rebecca Carr</title>
+  <meta name="description" content="Connect with Rebecca Carr at SURI." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main>
+    <section class="block">
+      <h1 class="wordmark"><img src="suri-logo.png" alt="SURI" /></h1>
+      <p class="who">Rebecca Carr</p>
+    </section>
+
+    <hr class="rule" />
+
+    <section class="block" id="form-block">
+      <!-- Step 1: their details -->
+      <form id="capture-form" autocomplete="on" novalidate>
+        <!-- Honeypot: hidden from people; bots tend to fill it. If filled, the server silently ignores. -->
+        <input type="text" id="website" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <input type="text"  id="name"    name="name"    required placeholder="Name"    autocomplete="name" autocapitalize="words" />
+        <input type="email" id="email"   name="email"   required placeholder="Email"   autocomplete="email" inputmode="email" autocapitalize="off" autocorrect="off" spellcheck="false" />
+        <input type="text"  id="company" name="company" required placeholder="Company" autocomplete="organization" enterkeyhint="next" />
+        <button type="submit" id="next-btn" class="btn">Next</button>
+        <p id="status1" class="status" role="status" aria-live="polite"></p>
+      </form>
+
+      <!-- Step 2: what would you like to do? -->
+      <div id="step2" hidden>
+        <p class="prompt">What would you like to do?</p>
+        <button type="button" class="btn btn-option" data-interest="Wholesale">Wholesale</button>
+        <button type="button" class="btn btn-option" data-interest="Talk to the team">Talk to the team</button>
+        <button type="button" class="btn btn-option" data-interest="Enter competition">Enter competition</button>
+        <p id="status2" class="status" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
